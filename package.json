@@ -1,0 +1,12 @@
+{
+    "name": "4c4b",
+    "version": "0.0.1",
+    "description": "Environment data platform",
+    "repository": "https://github.com/crisp00/4c4b",
+    "author": "Cris Pintea <cris@pintea.net>",
+    "dependencies": {
+      "rpi-dht-sensor":"^0.1.1",
+      "socket.io":"^1.7.3"
+    },
+    "main": "index"
+}
