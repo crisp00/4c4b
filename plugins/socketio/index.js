@@ -1,10 +1,13 @@
-var io = require('socket.io');
+var io = require("socket.io");
 
-module.exports = SocketIOAPI;
-function SocketIOAPI(core){
+module.exports = SocketIO;
+function SocketIO(core){
+  this.core = core;
+}
+
+SocketIO.prototype.onFCFBStart = function(){
   var self = this;
 
-  this.core = core;
   this.io = io();
   this.io.on("connection", function(client){
     console.log("connection");

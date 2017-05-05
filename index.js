@@ -1,8 +1,6 @@
 "use strict";
 var DHT11Sensor = require("./DHT11.js");
 var CoreStateMachine = require("./statemachine.js");
-var SocketioAPI = require("./socketio.js");
-var CoreWebClient = require("./webclient.js");
 var CorePluginLoader = require("./plugins/");
 var config = require("./config.json");
 
@@ -15,7 +13,6 @@ function CoreFCFB(){
   this.config = config;
   this.statemachine = new CoreStateMachine(this);
   this.dht11 = new DHT11Sensor(this);
-  this.socketioAPI = new SocketioAPI(this);
   this.pluginLoader = new CorePluginLoader(this);
   this.pluginClasses = this.pluginLoader.plugins;
 

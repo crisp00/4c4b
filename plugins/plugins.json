@@ -4,5 +4,8 @@
   },
   "smartdatanet":{
     "name":"smartdatanet"
+  },
+  "socketio":{
+    "name":"socketio"
   }
 }
