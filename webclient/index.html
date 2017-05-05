@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>4C4B Environment Data Collection Platform</title>
+  </head>
+  <body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <script>
+      var host = window.location.hostname;
+      var socket = io("http://" + host + ":3000");
+      socket.on('connect', () => {
+        console.log("connected to " + host);
+        socket.on('pushState', (data) => {
+          document.body.innerHTML = JSON.stringify(data);
+          console.log("pushState");
+        });
+        update();
+      });
+      socket.connect();
+
+
+      function update(){
+        socket.emit('getState', "asd");
+        setTimeout(update, 1000);
+      }
+    </script>
+  </body>
+</html>

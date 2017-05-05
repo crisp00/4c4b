@@ -11,6 +11,7 @@ var core = new CoreFCFB();
 module.exports = CoreFCFB;
 function CoreFCFB(){
   console.log("4c4b Started!");
+  this.version = "0.0.1";
   this.config = config;
   this.statemachine = new CoreStateMachine(this);
   this.dht11 = new DHT11Sensor(this);

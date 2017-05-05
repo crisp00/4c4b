@@ -1,9 +1,53 @@
 <html>
   <head>
-    <title>4C4B Environment Data Collection Platform</title>
+    <title>4C4Bee Data Routing Framework</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+      body{
+        background: #1e1e1e;
+        color: #ffffff;
+        font-family: monospace;
+        font-size: 80px;
+      }
+
+      h1{
+        font-size: .5em;
+      }
+
+      .datasquare{
+        width: 200px;
+        height: 200px;
+        margin: 50px;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 50px 0;
+        vertical-align: middle;
+      }
+      .datasquare .unit{
+        font-size: .5em;
+      }
+      .tempsquare{
+        background: #6644bb;
+      }
+      .humisquare{
+        background: #33bb66;
+      }
+      .wrapper{
+        text-align: center;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-
+    <div class="wrapper">
+      <h1>4C4Bee - Data Routing Framework</h1>
+      <div class="datasquare tempsquare">
+        <i class="fa fa-thermometer-half unit"></i><span id="temp">20</span>&deg;
+      </div>
+      <div class="datasquare humisquare">
+        <i class="fa fa-cloud unit"></i><span id="humi">50</span><span class="unit">%</span>
+      </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
     <script>
       var host = window.location.hostname;
@@ -11,7 +55,9 @@
       socket.on('connect', () => {
         console.log("connected to " + host);
         socket.on('pushState', (data) => {
-          document.body.innerHTML = JSON.stringify(data);
+          document.getElementById("temp").innerHTML = data.temp;
+          document.getElementById("humi").innerHTML = data.humid;
+          console.log(data.temp);
           console.log("pushState");
         });
         update();
@@ -21,7 +67,7 @@
 
       function update(){
         socket.emit('getState', "asd");
-        setTimeout(update, 1000);
+        setTimeout(update, 250);
       }
     </script>
   </body>

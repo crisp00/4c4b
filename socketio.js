@@ -9,7 +9,7 @@ function SocketIOAPI(core){
   this.io.on("connection", function(client){
     console.log("connection");
     client.on("getState", (data) => {
-      console.log("getState");
+      //console.log("getState");
       client.emit("pushState", self.core.statemachine.state);
     });
     client.on("disconnect", () => {});
