@@ -2,10 +2,10 @@
   "webclient":{
     "name":"webclient"
   },
-  "smartdatanet":{
-    "name":"smartdatanet"
-  },
   "socketio":{
     "name":"socketio"
+  },
+  "demo":{
+    "name":"demo"
   }
 }

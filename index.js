@@ -1,5 +1,5 @@
 "use strict";
-var DHT11Sensor = require("./DHT11.js");
+
 var CoreStateMachine = require("./statemachine.js");
 var CorePluginLoader = require("./plugins/");
 var config = require("./config.json");
@@ -12,7 +12,6 @@ function CoreFCFB(){
   this.version = "0.0.1";
   this.config = config;
   this.statemachine = new CoreStateMachine(this);
-  this.dht11 = new DHT11Sensor(this);
   this.pluginLoader = new CorePluginLoader(this);
   this.pluginClasses = this.pluginLoader.plugins;
 
